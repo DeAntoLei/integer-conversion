@@ -18,5 +18,6 @@ void   convert_char(uint8_t val, uint8_t output[3]);
 void   convert_short(uint16_t val, uint8_t output[3]);
 size_t convert_long(const void *val, IntValueType type, uint8_t (*output)[3]);
 
+int convert_into_nbyte_arrays(const void *value, IntValueType type, uint8_t *output, int n);
 
 #endif	  // INTEGER_CONVERSION_H

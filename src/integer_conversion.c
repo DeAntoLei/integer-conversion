@@ -47,3 +47,44 @@ size_t convert_long(const void *val, IntValueType type, uint8_t (*output)[3])
 
 	return array_count;
 }
+
+// Universal conversion function
+int convert_into_nbyte_arrays(const void *value, IntValueType type, uint8_t *output, int n)
+{
+	int		 chunk_count = 0;
+	uint64_t temp_value	 = 0;	 // Use a 64-bit temporary variable to handle all types
+
+	// Copy the value into the temporary variable based on the type
+	switch (type) {
+	case TYPE_CHAR:
+		temp_value = *(const uint8_t *)value;
+		break;
+	case TYPE_SHORT:
+		temp_value = *(const uint16_t *)value;
+		break;
+	case TYPE_LONG:
+		temp_value = *(const uint32_t *)value;
+		break;
+	case TYPE_LONG_LONG:
+		temp_value = *(const uint64_t *)value;
+		break;
+	default:
+		printf("Error: Unsupported type\n");
+		return 0;
+	}
+
+	// Convert the value into n-byte chunks
+	while (temp_value > 0) {
+		for (int i = 0; i < n; i++) {
+			output[chunk_count * n + i] = (temp_value >> ((n - i - 1) * 8)) & 0xFF;
+		}
+		temp_value >>= (n * 8);	   // Shift right by n*8 bits to process the next chunk
+		chunk_count++;
+	}
+
+	if (temp_value > 0) {
+		printf("Warning: Value truncated, insufficient chunks allocated\n");
+	}
+
+	return chunk_count;
+}

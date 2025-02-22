@@ -14,8 +14,14 @@ set(SOURCES src/integer_conversion.c)
 # Test executable for the coversion into 3-byte arrays
 add_executable(test_integer_conversion test/test_integer_conversion.c ${SOURCES})
 
+# Test executable for the coversion into n-byte arrays
+add_executable(test_integer_conversion_universal test/test_integer_conversion_universal.c ${SOURCES})
+
 # Enable testing
 enable_testing()
 
 # Add tests for the coversion into 3-byte arrays
 add_test(NAME test_integer_conversion COMMAND test_integer_conversion)
+
+# Add tests for the coversion into n-byte arrays
+add_test(NAME test_integer_conversion_universal COMMAND test_integer_conversion_universal)
