@@ -1,0 +1,38 @@
+BasedOnStyle: WebKit
+BreakBeforeBraces: WebKit
+Language: Cpp
+
+AlignConsecutiveAssignments:
+  Enabled: true
+AlignConsecutiveDeclarations: true
+AlignConsecutiveMacros:
+  Enabled: true
+  AcrossEmptyLines: true
+  AcrossComments: true
+AlignEscapedNewlines: Right
+AlignOperands: Align
+AlignTrailingComments: true
+PointerAlignment: Right
+ReferenceAlignment: Pointer
+
+AllowShortEnumsOnASingleLine: false
+BinPackArguments: true
+BinPackParameters: true
+BreakBeforeTernaryOperators: false
+BreakStringLiterals: true
+
+ContinuationIndentWidth: 4
+IndentCaseBlocks: true
+IndentWidth: 4
+KeepEmptyLinesAtTheStartOfBlocks: false
+TabWidth: 4
+UseTab: Always
+
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeParens: Custom
+SpaceBeforeParensOptions:
+  AfterControlStatements: true
+  AfterFunctionDeclarationName: false
+  AfterFunctionDefinitionName: false
+  BeforeNonEmptyParentheses: false
+SpacesBeforeTrailingComments: 4
