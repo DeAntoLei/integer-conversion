@@ -55,7 +55,7 @@ int main()
 
 	// Convert a char (1-byte) value into 2-byte arrays
 	uint8_t char_val = 0xAB;
-	n				 = 2;	 // Chunk size in bytes
+	n				 = 2;	 // Array size in bytes
 	int array_count	 = calculate_array_count(TYPE_CHAR, n);
 	byte_arrays		 = malloc(array_count * n * sizeof(unsigned char));	   // Allocate memory
 	if (byte_arrays == NULL) {
@@ -69,7 +69,7 @@ int main()
 
 	// Convert a short (2-byte) value into 3-byte arrays
 	uint16_t short_val = 0xABCD;
-	n				   = 3;	   // Chunk size in bytes
+	n				   = 3;	   // Array size in bytes
 	array_count		   = calculate_array_count(TYPE_SHORT, n);
 	byte_arrays		   = malloc(array_count * n * sizeof(unsigned char));	 // Allocate memory
 	if (byte_arrays == NULL) {
@@ -83,7 +83,7 @@ int main()
 
 	// Convert a long (4-byte) value into 4-byte arrays
 	uint32_t long_val = 0xABCDEF12;
-	n				  = 4;	  // Chunk size in bytes
+	n				  = 4;	  // Array size in bytes
 	array_count		  = calculate_array_count(TYPE_LONG, n);
 	byte_arrays		  = malloc(array_count * n * sizeof(unsigned char));	// Allocate memory
 	if (byte_arrays == NULL) {
@@ -97,7 +97,7 @@ int main()
 
 	// Convert a long long (8-byte) value into 3-byte arrays
 	uint64_t long_long_val = 0xFFFFFFFFFFFFFFFF;
-	n					   = 3;	   // Chunk size in bytes
+	n					   = 3;	   // Array size in bytes
 	array_count			   = calculate_array_count(TYPE_LONG_LONG, n);
 	byte_arrays			   = malloc(array_count * n * sizeof(unsigned char));	 // Allocate memory
 	if (byte_arrays == NULL) {
